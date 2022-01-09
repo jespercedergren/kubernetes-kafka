@@ -1,0 +1,38 @@
+bases:
+- ../../../resources/zookeeper
+commonLabels:
+  app: zookeeper
+patchesJson6902:
+  - target:
+      version: v1
+      kind: StatefulSet
+      name: zookeeper
+    path: zookeeper-data-pvc.yaml
+  - target:
+      version: v1
+      kind: StatefulSet
+      name: zookeeper
+    path: node-affinity.yaml
+#resources:
+#  - storage-class.yaml
+#patchesJson6902:
+#  - target:
+#      version: v1
+#      kind: PersistentVolume
+#      name: zookeeper-data-pv
+#    path: zookeeper-data-pv.yaml
+#  - target:
+#      version: v1
+#      kind: PersistentVolumeClaim
+#      name: zookeeper-data-pvc
+#    path: zookeeper-data-pvc.yaml
+#  - target:
+#      version: v1
+#      kind: PersistentVolume
+#      name: zookeeper-datalog-pv
+#    path: zookeeper-datalog-pv.yaml
+#  - target:
+#      version: v1
+#      kind: PersistentVolumeClaim
+#      name: zookeeper-datalog-pvc
+#    path: zookeeper-datalog-pvc.yaml
