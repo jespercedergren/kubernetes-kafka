@@ -1,0 +1,15 @@
+bases:
+- ../../../resources/kafka
+commonLabels:
+  app: kafka
+patchesJson6902:
+  - target:
+      version: v1
+      kind: StatefulSet
+      name: kafka
+    path: kafka-data-pvc.yaml
+  - target:
+      version: v1
+      kind: StatefulSet
+      name: kafka
+    path: node-affinity.yaml

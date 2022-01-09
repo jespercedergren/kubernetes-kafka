@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kafka-config
+  namespace: kafka
+data:
+#  KAFKA_ZOOKEEPER_CONNECT: "zookeeper-service:2181"  #config/server.properties
+  KAFKA_ZOOKEEPER_CONNECT: "zookeeper-cs:2181"
+  KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL_PLAINTEXT:PLAINTEXT,EXTERNAL_PLAINTEXT:PLAINTEXT
+  KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL_PLAINTEXT
+  KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
+  KAFKA_BROKER_ID_GENERATION_ENABLE: "true"
+#  BROKER_ID_COMMAND: "${HOSTNAME##*-}"
+#  KAFKA_BROKER_ID_COMMAND: "hostname | awk -F'-' '{print $$2}'"

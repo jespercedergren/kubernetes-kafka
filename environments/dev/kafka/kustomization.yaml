@@ -1,0 +1,4 @@
+bases:
+- ../../../resources/kafka
+commonLabels:
+  app: kafka
